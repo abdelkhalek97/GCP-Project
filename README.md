@@ -1,7 +1,19 @@
 # GCP-Project
 
 ![home_Page Image](./Images/Project.png)
+This is a google cloud project aims to deploy an application on GKE cluster while this cluster is private and creating kubernetes objects is only allowed from a private instance .
+a nat gateway is created to allow accessing that private instance.
 
+#### two subnets is created.
+
+-Management subnet has the following:\
+NAT gateway\
+Private VM
+
+-Restricted subnet has the following:\
+Private standard GKE cluster
+
+application used : https://github.com/atefhares/DevOps-Challenge-Demo-Code
 
 
 ### Build a docker image and upload it to your gcr:
