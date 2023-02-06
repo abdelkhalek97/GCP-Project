@@ -6,19 +6,19 @@ resource "google_compute_instance" "private-vm" {
   metadata_startup_script = var.file
 
   service_account {
-    email = var.service_account
-    scopes = ["https://www.googleapis.com/auth/cloud-platform" ]
+    email  = var.service_account
+    scopes = ["https://www.googleapis.com/auth/cloud-platform"]
   }
-  
+
   boot_disk {
     initialize_params {
       image = var.image
-      size = var.size
+      size  = var.size
     }
   }
- 
+
   network_interface {
-    network = var.network
+    network    = var.network
     subnetwork = var.subnetwork
   }
 
