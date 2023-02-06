@@ -48,14 +48,9 @@ module "ServiceAccount" {
   source   = "./ServiceAccount"
   roleName = "myRole"
   title    = "my role"
-  permissions = ["resourcemanager.projects.get", "storage.buckets.get", "storage.buckets.list", "storage.objects.get", "storage.objects.list",
-    "container.deployments.get", "container.deployments.create", "container.deployments.list", "container.services.list", "container.services.get",
-    "container.services.create", "container.clusters.list", "container.clusters.getCredentials", "container.clusters.get", "container.pods.list",
-  "container.nodes.list"]
+  permissions = ["resourcemanager.projects.get", "storage.buckets.get", "storage.buckets.list" , "storage.objects.get" , "storage.objects.list" , "container.deployments.get" , "container.deployments.create" , "container.deployments.list" , "container.services.list" , "container.services.get" , "container.services.create" , "container.clusters.list" , "container.clusters.getCredentials" , "container.clusters.get" , "container.pods.list" ,"container.nodes.list" ]
   serviceName = "project-sa"
   project = "able-starlight-375707"
-
-
 }
 
 module "Gke" {
@@ -69,4 +64,17 @@ module "Gke" {
   cidr_block = "10.0.1.0/24"
   display_name = "managment-cidr-range"
   service_account = module.ServiceAccount.ServiceName
+}
+
+module "Priv_instance" {
+  source = "./Instance"
+  name = "private-instance"
+  zone = "us-east4-a"
+  file = "${file("./bash.sh")}"
+  service_account = module.ServiceAccount.ServiceName
+  image = "ubuntu-os-cloud/ubuntu-2204-lts"
+  size = 20
+  network = module.Vpc.vpcID
+  subnetwork = module.subnet_1.subnetName
+   
 }

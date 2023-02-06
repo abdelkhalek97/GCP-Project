@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app-deployment
+  labels:
+    app: myapp
+    type: front-end
+
+spec:
+  template:
+    metadata:
+      labels:
+        app: myapp
+        type: front-end
+
+    spec:
+      containers:
+        - name: app-container
+          image: gcr.io/able-starlight-375707/gcp-python
+          ports:
+            - containerPort: 8000
+          env:
+            - name: REDIS_HOST
+              value: redis-service.default.svc.cluster.local
+             
+  replicas: 3
+  selector:
+    matchLabels:
+      type: front-end
+  
+  
