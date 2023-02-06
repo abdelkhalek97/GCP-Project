@@ -1,5 +1,9 @@
 # GCP-Project
 
+![home_Page Image](./Images/Project.png)
+
+
+
 ### Build a docker image and upload it to your gcr:
 
 #### -run these commands while you are in app directory:
