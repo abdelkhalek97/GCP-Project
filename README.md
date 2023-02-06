@@ -64,7 +64,7 @@ application used : https://github.com/atefhares/DevOps-Challenge-Demo-Code
 
 ## Important Note:
 My project name in gcp is : able-starlight-375707 \
-My bucket name in gcp is : k8s-yaml-files\
+My bucket name in gcp is : k8s-yaml-files
 #### -In order for this project to work you will need to change these variables to match your own gcp info.
   #### -you will find these variables in :
   /k8s_files/python-app-deployment.yml\
