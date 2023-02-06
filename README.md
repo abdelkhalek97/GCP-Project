@@ -61,3 +61,16 @@ application used : https://github.com/atefhares/DevOps-Challenge-Demo-Code
   ```
   terraform apply
   ```
+
+## Important Note:
+My project name in gcp is : able-starlight-375707 \
+My bucket name in gcp is : k8s-yaml-files\
+#### -In order for this project to work you will need to change these variables to match your own gcp info.
+  #### -you will find these variables in :
+  /k8s_files/python-app-deployment.yml\
+  /k8s_files/redis-deploymet.yml\
+  /bash.sh\
+  /main.tf\
+  /provider.tf
+  
+-Add your credentials in provider.tf and move your .json file in GCP-Project directory
